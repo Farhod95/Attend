@@ -1,65 +1,67 @@
-# Attend Application
+# 🎓 Attend Application
 
-## Overview
-
-This is a simple **in-memory attendance management system** built in C#.  
-It allows you to:
-
-- Add students
-- Track student attendance (enter and exit times)
-- Display all students and their attendances
-
-The application uses a **fake in-memory database** (`DbContext`) and demonstrates basic CRUD operations (`Add` and `GetAll`).
+Welcome to the **Attend Application** – a simple **in-memory attendance management system** built with **C#**.  
+This project demonstrates basic **CRUD operations** using `Add` and `GetAll` methods.
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
-
-### Domain Models
-
-1. **Student**
-   - FirstName
-   - LastName
-   - Code
-   - Email
-
-2. **Attendance**
-   - Student
-   - EnterDate
-   - ExitDate
-   - ParticipationMinutes
-   - WaitingMinutes
-
-3. **ExternalAttendance**
-   - FullNameWithCode
-   - Email
-   - EnterDate
-   - ExitDate
-   - Duration
-   - IsHost
-   - IsWaiting
 
 ---
 
-## Features
+## 🧩 Domain Models
 
-### 1. Add Student
-Add a new student to the in-memory database.
+- **👤 Student**
+  - `FirstName` – First Name
+  - `LastName` – Last Name
+  - `Code` – Student Code
+  - `Email` – Email Address
 
-### 2. Get All Students
-Retrieve and display all students.
+- **🕒 Attendance**
+  - `Student` – Student reference
+  - `EnterDate` – Date and time of entry
+  - `ExitDate` – Date and time of exit
+  - `ParticipationMinutes` – Minutes actively participated
+  - `WaitingMinutes` – Minutes waiting
 
-### 3. Add Attendance
-Add attendance for a student with enter and exit times, participation, and waiting minutes.
-
-### 4. Get All Attendances
-Retrieve and display all attendance records.
+- **🌐 ExternalAttendance**
+  - `FullNameWithCode`
+  - `Email`
+  - `EnterDate`, `ExitDate`
+  - `Duration`
+  - `IsHost`, `IsWaiting`
 
 ---
 
-## Usage
+## ✨ Features
 
-1. Clone the repository:
+- **➕ Add Student** – Add a new student to the in-memory database
+- **📋 Get All Students** – Display all students
+- **🕘 Add Attendance** – Record attendance with enter/exit times
+- **📊 Get All Attendances** – Display all attendance records
+
+---
+
+## 🚀 Usage
+
+1. **Clone the repository**
 ```bash
 git clone <repository-url>
+var services = new Services();
+
+// Adding students
+services.AddStudent("Ali", "Valiyev", "1110", "ali@gmail.com");
+services.AddStudent("Gul", "Karimova", "1111", "gul@gmail.com");
+
+// Adding attendance
+services.AddAttendence(
+    new DateTime(2025, 12, 23, 9, 0, 0),   // EnterDate
+    new DateTime(2025, 12, 23, 10, 30, 0), // ExitDate
+    90,                                     // ParticipationMinutes
+    10                                      // WaitingMinutes
+);
+
+// Display data
+services.GetAllStudents();
+services.GetAllAttends();
