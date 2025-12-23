@@ -1,3 +1,4 @@
+![Console App Demo](Assets/animation.gif)
 # 🎓 Attend Application
 
 Welcome to the **Attend Application** – a simple **in-memory attendance management system** built with **C#**.  
